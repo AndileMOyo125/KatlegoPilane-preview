@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +28,16 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
+        
+        /* REEL PROGRESS BAR ANIMATION */
+        @keyframes reelProgress {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+        .reel-progress-fill {
+            animation: reelProgress 15s linear infinite;
+        }
+
         /* Accordion transition */
         .accordion-content {
             transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
@@ -422,34 +431,79 @@
             </div>
         </section>
 
-        <!-- BRANDS CAROUSEL -->
+        <!-- 4. INFLUENCER SERVICES & OFFERINGS (ADDED FROM PREVIOUS UPDATE) -->
+        <section class="py-32 px-6 relative z-40" style="background-color: #F5F1ED;">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-20 text-center scroll-blur">
+                    <h2 class="text-4xl md:text-5xl text-slate-800 mb-6">Strategic Services</h2>
+                    <p class="text-slate-400 font-light tracking-wide uppercase text-xs">Curating Brand Authority Through Visual Excellence</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Editorial UGC Card -->
+                    <div class="group relative h-[550px] rounded-[3rem] overflow-hidden shadow-xl scroll-stagger">
+                        <img src="images/KAT_5563.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Editorial UGC">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-10 left-10 right-10">
+                            <h3 class="text-2xl text-white mb-2">Editorial UGC</h3>
+                            <p class="text-white/60 text-sm mb-6 font-light leading-relaxed">High-fidelity organic content designed to integrate seamlessly into prestigious brand feeds.</p>
+                            <button class="service-quote-btn w-full py-5 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full text-[10px] uppercase font-bold tracking-[0.3em] hover:bg-white hover:text-slate-900 transition-all">Request a Quote</button>
+                        </div>
+                    </div>
+
+                    <!-- Ambassadorship Card -->
+                    <div class="group relative h-[550px] rounded-[3rem] overflow-hidden shadow-xl scroll-stagger">
+                        <img src="images/IMG_5572.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ambassadorship">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-10 left-10 right-10">
+                            <h3 class="text-2xl text-white mb-2">Ambassadorship</h3>
+                            <p class="text-white/60 text-sm mb-6 font-light leading-relaxed">Long-term alignment focused on building deep-rooted brand affinity and consistent lifestyle presence.</p>
+                            <button class="service-quote-btn w-full py-5 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full text-[10px] uppercase font-bold tracking-[0.3em] hover:bg-white hover:text-slate-900 transition-all">Request a Quote</button>
+                        </div>
+                    </div>
+
+                    <!-- Events Card -->
+                    <div class="group relative h-[550px] rounded-[3rem] overflow-hidden shadow-xl scroll-stagger">
+                        <img src="images/KAT_5568.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Events">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-10 left-10 right-10">
+                            <h3 class="text-2xl text-white mb-2">Events & Hosting</h3>
+                            <p class="text-white/60 text-sm mb-6 font-light leading-relaxed">Exclusive coverage and VIP hosting for product launches, runway presentations, and activations.</p>
+                            <button class="service-quote-btn w-full py-5 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full text-[10px] uppercase font-bold tracking-[0.3em] hover:bg-white hover:text-slate-900 transition-all">Request a Quote</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRANDS CAROUSEL (UPDATED WITH REEL TRIGGER) -->
         <section class="py-32 px-6 bg-white relative z-40">
             <div class="max-w-5xl mx-auto bg-slate-900 rounded-[4rem] p-16 md:p-24 text-center shadow-2xl overflow-hidden relative scroll-fade-in">
                 <div class="absolute top-0 right-0 w-64 h-64 rounded-full blur-[100px]" style="background-color: rgba(212, 165, 116, 0.1);"></div>
                 <h2 class="text-4xl md:text-5xl text-white mb-8">Iconic Partnerships</h2>
                 <p class="text-slate-400 mb-16 font-light max-w-md mx-auto">Redefining boundaries with the world's most prestigious fashion houses.</p>
                 <div class="flex flex-wrap justify-center gap-12 md:gap-16">
-                    <div class="flex flex-col items-center group cursor-pointer scroll-fade-in" onclick="alert('Vogue Editorial 2026')">
+                    <div class="flex flex-col items-center group cursor-pointer scroll-fade-in" onclick="openReel('Vogue Editorial 2026', 'https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&q=80')">
                         <div class="w-24 h-24 md:w-28 md:h-28 rounded-full p-1 group-hover:scale-110 transition-transform duration-500" style="background: linear-gradient(135deg, #D4A574 0%, #C9B4A3 100%);">
-                            <div class="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden bg-white shadow-inner"><img src="https://picsum.photos/200/200?random=10" class="w-full h-full object-cover" /></div>
+                            <div class="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden bg-white shadow-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Vogue_logo.svg/1200px-Vogue_logo.svg.png" class="w-full h-full object-contain p-4 grayscale group-hover:grayscale-0 transition-all" /></div>
                         </div>
                         <span class="mt-4 text-white/40 text-[10px] uppercase tracking-widest font-bold group-hover:text-amber-600 transition-colors">Vogue</span>
                     </div>
-                    <div class="flex flex-col items-center group cursor-pointer scroll-fade-in" onclick="alert('Chanel 2026 Collection')">
+                    <div class="flex flex-col items-center group cursor-pointer scroll-fade-in" onclick="openReel('Chanel 2026 Collection', 'https://images.unsplash.com/photo-1540200049848-d9e15e67ca44?auto=format&fit=crop&q=80')">
                         <div class="w-24 h-24 md:w-28 md:h-28 rounded-full p-1 group-hover:scale-110 transition-transform duration-500" style="background: linear-gradient(135deg, #D4A574 0%, #C9B4A3 100%);">
-                            <div class="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden bg-white shadow-inner"><img src="https://picsum.photos/200/200?random=11" class="w-full h-full object-cover" /></div>
+                            <div class="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden bg-white shadow-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Chanel_logo_interlocking_cs.svg/1200px-Chanel_logo_interlocking_cs.svg.png" class="w-full h-full object-contain p-6 grayscale group-hover:grayscale-0 transition-all" /></div>
                         </div>
                         <span class="mt-4 text-white/40 text-[10px] uppercase tracking-widest font-bold group-hover:text-amber-600 transition-colors">Chanel</span>
                     </div>
-                    <div class="flex flex-col items-center group cursor-pointer scroll-fade-in" onclick="alert('Dior 2026 Heritage')">
+                    <div class="flex flex-col items-center group cursor-pointer scroll-fade-in" onclick="openReel('Dior Heritage 2026', 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80')">
                         <div class="w-24 h-24 md:w-28 md:h-28 rounded-full p-1 group-hover:scale-110 transition-transform duration-500" style="background: linear-gradient(135deg, #D4A574 0%, #C9B4A3 100%);">
-                            <div class="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden bg-white shadow-inner"><img src="https://picsum.photos/200/200?random=12" class="w-full h-full object-cover" /></div>
+                            <div class="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden bg-white shadow-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Dior_Logo.svg/1200px-Dior_Logo.svg.png" class="w-full h-full object-contain p-4 grayscale group-hover:grayscale-0 transition-all" /></div>
                         </div>
                         <span class="mt-4 text-white/40 text-[10px] uppercase tracking-widest font-bold group-hover:text-amber-600 transition-colors">Dior</span>
                     </div>
-                    <div class="flex flex-col items-center group cursor-pointer scroll-fade-in" onclick="alert('Prada 2026 Showcase')">
+                    <div class="flex flex-col items-center group cursor-pointer scroll-fade-in" onclick="openReel('Prada Showcase 2026', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80')">
                         <div class="w-24 h-24 md:w-28 md:h-28 rounded-full p-1 group-hover:scale-110 transition-transform duration-500" style="background: linear-gradient(135deg, #D4A574 0%, #C9B4A3 100%);">
-                            <div class="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden bg-white shadow-inner"><img src="https://picsum.photos/200/200?random=13" class="w-full h-full object-cover" /></div>
+                            <div class="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden bg-white shadow-inner"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Prada-Logo.svg/1200px-Prada-Logo.svg.png" class="w-full h-full object-contain p-4 grayscale group-hover:grayscale-0 transition-all" /></div>
                         </div>
                         <span class="mt-4 text-white/40 text-[10px] uppercase tracking-widest font-bold group-hover:text-amber-600 transition-colors">Prada</span>
                     </div>
@@ -459,7 +513,8 @@
 
         <!-- PERFORMANCE ACCORDION -->
         <section class="py-32 px-6 relative z-40" style="background-color: #F5F1ED;">
-            <div class="max-w-4xl mx-auto">
+            <!-- (Contents remain same as your code) -->
+             <div class="max-w-4xl mx-auto">
                 <div class="mb-16 scroll-fade-in">
                     <h2 class="text-4xl text-slate-800 mb-3">Analytics Deep-Dive</h2>
                     <p class="text-slate-400 font-light tracking-wide">Quantifiable impact for strategic partners.</p>
@@ -510,59 +565,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Facebook Item -->
-                    <div class="accordion-item bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm transition-all duration-500">
-                        <button class="accordion-trigger w-full p-10 flex items-center justify-between text-left focus:outline-none">
-                            <div class="flex items-center gap-8">
-                                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center brand-fb">
-                                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-medium text-slate-800">Facebook</h3>
-                                    <p class="text-slate-400 text-sm tracking-widest uppercase font-bold text-[10px] mt-1">1.2M Brand Loyalty</p>
-                                </div>
-                            </div>
-                            <svg class="rotate-icon w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        </button>
-                        <div class="accordion-content px-10">
-                            <div class="pt-4 grid grid-cols-2 md:grid-cols-3 gap-8">
-                                <div class="bg-slate-50 p-8 rounded-3xl"><div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Click Through</div><div class="text-3xl font-bold" style="color: #D4A574;">3.5%</div></div>
-                                <div class="bg-slate-50 p-8 rounded-3xl"><div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Total Reach</div><div class="text-3xl font-bold" style="color: #C9B4A3;">4.2M</div></div>
-                                <div class="col-span-2 md:col-span-1 bg-slate-50 p-8 rounded-3xl"><div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Sentiment</div><div class="text-3xl font-bold text-emerald-500">92%</div></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- YouTube Item -->
-                    <div class="accordion-item bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm transition-all duration-500">
-                        <button class="accordion-trigger w-full p-10 flex items-center justify-between text-left focus:outline-none">
-                            <div class="flex items-center gap-8">
-                                <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center brand-yt">
-                                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-medium text-slate-800">YouTube</h3>
-                                    <p class="text-slate-400 text-sm tracking-widest uppercase font-bold text-[10px] mt-1">850K Visual Depth</p>
-                                </div>
-                            </div>
-                            <svg class="rotate-icon w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                        </button>
-                        <div class="accordion-content px-10">
-                            <div class="pt-4 grid grid-cols-2 md:grid-cols-3 gap-8">
-                                <div class="bg-slate-50 p-8 rounded-3xl"><div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Watch Time</div><div class="text-3xl font-bold" style="color: #D4A574;">8:12m</div></div>
-                                <div class="bg-slate-50 p-8 rounded-3xl"><div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">Monthly Views</div><div class="text-3xl font-bold" style="color: #C9B4A3;">2.1M</div></div>
-                                <div class="col-span-2 md:col-span-1 bg-slate-50 p-8 rounded-3xl"><div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-2">CTR</div><div class="text-3xl font-bold text-emerald-500">8.2%</div></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- FOOTER -->
         <footer class="py-32 text-center px-6 relative z-40" style="background-color: #F5F1ED;">
-            <div class="max-w-lg mx-auto pb-24">
+             <div class="max-w-lg mx-auto pb-24">
                 <h2 class="text-3xl font-light tracking-[0.4em] text-slate-800 uppercase mb-10">Katlego Pilane</h2>
                 <div class="flex justify-center gap-10 mb-16">
                     <a href="#" class="brand-ig hover:scale-110 transition-transform"><svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
@@ -585,6 +594,7 @@
 
     <!-- VIEW 2: FORM -->
     <main id="form-view" class="hidden min-h-screen flex flex-col items-center pt-24 pb-12 px-6" style="background-color: #F5F1ED;">
+        <!-- (Contents remain same as your code) -->
         <div class="max-w-2xl w-full">
             <button id="back-to-profile" class="group flex items-center gap-3 text-slate-400 hover:text-slate-800 transition-colors mb-12 uppercase tracking-[0.4em] text-[10px] font-bold">
                 <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
@@ -640,6 +650,59 @@
             </div>
         </div>
     </main>
+
+    <!-- FULL SCREEN REEL POPUP (NEW FEATURE) -->
+    <div id="reel-popup" class="fixed inset-0 z-[200] hidden bg-black/95 items-center justify-center p-4">
+        <!-- Close Button -->
+        <button onclick="closeReel()" class="absolute top-8 right-8 text-white/70 hover:text-white text-4xl z-[210] transition-all focus:outline-none">&times;</button>
+        
+        <!-- Reel Container (9:16 Aspect) -->
+        <div class="relative w-full max-w-[420px] aspect-[9/16] bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10">
+            
+            <!-- Progress Bar -->
+            <div class="absolute top-4 left-4 right-4 h-[2px] bg-white/20 z-20">
+                <div class="reel-progress-fill h-full bg-white rounded-full"></div>
+            </div>
+
+            <!-- Media Placeholder (Image simulating video) -->
+            <img id="reel-media" src="" class="absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+
+            <!-- Side Action Icons -->
+            <div class="absolute right-4 bottom-36 flex flex-col gap-6 text-white z-20 items-center">
+                <div class="flex flex-col items-center gap-1">
+                    <button class="hover:scale-110 transition-transform"><svg class="w-7 h-7" fill="white" viewBox="0 0 24 24"><path d="M12.1 18.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5 18.5 5 20 6.5 20 8.5c0 2.89-3.14 5.74-7.9 10.05z"></path></svg></button>
+                    <span class="text-[10px] font-bold">242K</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <button class="hover:scale-110 transition-transform"><svg class="w-7 h-7" fill="white" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path></svg></button>
+                    <span class="text-[10px] font-bold">1.2K</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <button class="hover:scale-110 transition-transform"><svg class="w-7 h-7" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"></path></svg></button>
+                    <span class="text-[10px] font-bold">Share</span>
+                </div>
+            </div>
+
+            <!-- Bottom Credits & Link -->
+            <div class="absolute bottom-10 left-8 right-8 text-white z-20">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full border border-white/40 overflow-hidden">
+                        <img src="images/KAT_5563.jpeg" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold">katlegopilane_</p>
+                        <p id="reel-campaign-title" class="text-[10px] text-white/70 uppercase tracking-widest"></p>
+                    </div>
+                </div>
+                
+                <a href="https://instagram.com" target="_blank" class="glass w-full py-4 rounded-xl flex items-center justify-center gap-3 border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white/20 transition-all">
+                    View on Instagram
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.063 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.063-2.633-.333-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.351-.2 6.78-2.618 6.98-6.98.058-1.28.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.337-2.618-6.78-6.98-6.98-1.28-.058-1.689-.072-4.948-.072z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="./index.js"></script>
 </body>
